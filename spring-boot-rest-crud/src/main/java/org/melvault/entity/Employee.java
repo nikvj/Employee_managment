@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "Employee_managment")
@@ -15,28 +17,23 @@ public class Employee {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "employee_id")
 	private int employeeId;
-	
 	@Column(name = "employee_name")
-	private String empolyeeName;
+	@NotNull
+	@Size(min=2, max=30)
+	private String name;
 
 	@Column(name = "country_salary")
-	private int employeesalary;
+	@NotNull
+	private int salary;
 
 	@Column(name = "employee_expr")
-	private int employeeexpr;
+	@NotNull
+	private int exp;
 	
 	@Column(name = "employee_age")
-	private int employeeage;
+	private int age;
 
 
-
-	public int getEmployeeage() {
-		return employeeage;
-	}
-
-	public void setEmployeeage(int employeeage) {
-		this.employeeage = employeeage;
-	}
 
 	public int getEmployeeId() {
 		return employeeId;
@@ -46,28 +43,36 @@ public class Employee {
 		this.employeeId = employeeId;
 	}
 
-	public String getEmpolyeeName() {
-		return empolyeeName;
+	public String getName() {
+		return name;
 	}
 
-	public void setEmpolyeeName(String empolyeeName) {
-		this.empolyeeName = empolyeeName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public int getEmployeesalary() {
-		return employeesalary;
+	public int getSalary() {
+		return salary;
 	}
 
-	public void setEmployeesalary(int employeesalary) {
-		this.employeesalary = employeesalary;
+	public void setSalary(int salary) {
+		this.salary = salary;
 	}
 
-	public int getEmployeeexpr() {
-		return employeeexpr;
+	public int getExp() {
+		return exp;
 	}
 
-	public void setEmployeeexpr(int employeeexpr) {
-		this.employeeexpr = employeeexpr;
+	public void setExp(int exp) {
+		this.exp = exp;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
 	}
 
 }
